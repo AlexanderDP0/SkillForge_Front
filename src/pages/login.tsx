@@ -60,13 +60,13 @@ export default function Login() {
   }) => {
     try {
       const { remember, ...variables } = values;
-      const response = await api.post("/users/login", {
+      const response = await api.post("/auth/login", {
         email: values.email,
         password: values.password,
       });
 
       const data = response.data;
-      localStorage.setItem(AUTH_KEY, data.accessToken);
+      localStorage.setItem(AUTH_KEY, data);
       window.dispatchEvent(new Event("sessionUpdated"));
       navigate("/");
     } catch (error) {

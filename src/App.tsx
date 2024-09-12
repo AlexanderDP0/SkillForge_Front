@@ -11,6 +11,7 @@ import { AUTH_KEY } from "./utils/constants/Storage.Constants";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Navbar from "./components/navbar/navbar";
+import Register from "./pages/register";
 
 const App: React.FC = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -33,6 +34,10 @@ const App: React.FC = () => {
       <Route
         path="login"
         element={authenticated ? <Navigate to="/" replace /> : <Login />}
+      />
+      <Route
+        path="register"
+        element={authenticated ? <Navigate to="/" replace /> : <Register />}
       />
       <Route path="*" element={<h1>404 - Not Found</h1>} />
     </>

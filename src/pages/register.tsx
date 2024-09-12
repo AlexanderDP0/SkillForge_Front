@@ -1,6 +1,8 @@
 import * as Yup from "yup";
 
+import { AUTH_KEY, EMAIL_KEY } from "../utils/constants/Storage.Constants";
 import { Field, Form, Formik } from "formik";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import {
   buttonClass,
@@ -11,26 +13,29 @@ import {
   errorClass,
   fieldClass,
   formClass,
-  gridClass,
   headerClass,
   labelClass,
   linkClass,
+  rememberClass,
   sectionClass,
   textClass,
 } from "../utils/classname/ClassNames";
 
-import { AUTH_KEY } from "../utils/constants/Storage.Constants";
 import PasswordInput from "../components/passwordinput/PasswordInput";
 import api from "../utils/axios/Axios";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+
+const initialValues = {
+  email: localStorage.getItem(EMAIL_KEY) || "",
+  password: "",
+};
 
 export default function Register() {
   const { t } = useTranslation("register");
-  const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState<string>("");
+  const navigate = useNavigate();
 
-  const SignupSchema = Yup.object().shape({
+  const SigninSchema = Yup.object().shape({
     email: Yup.string().email(t("errors.email")).required(t("errors.required")),
     password: Yup.string()
       .min(8, t("errors.short"))
@@ -40,48 +45,24 @@ export default function Register() {
       .matches(/\d/, t("errors.number"))
       .matches(/[@$!%*?&#]/, t("errors.special"))
       .required(t("errors.required")),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password")], t("errors.confirmPassword"))
-      .required(t("errors.required")),
-    firstName: Yup.string()
-      .min(2, t("errors.short"))
-      .max(50, t("errors.long"))
-      .required(t("errors.required")),
-    lastName: Yup.string()
-      .min(2, t("errors.short"))
-      .max(50, t("errors.long"))
-      .required(t("errors.required")),
   });
 
-  const handleSubmit = async (values: {
-    email: string;
-    password: string;
-    confirmPassword: string;
-    firstName: string;
-    lastName: string;
-    rol: string;
-  }) => {
+  const handleSubmit = async (values: { email: string; password: string }) => {
     try {
-      const response = await api.post("/users", {
-        firstName: values.firstName,
-        lastName: values.lastName,
+      const { ...variables } = values;
+      const response = await api.post("/user", {
         email: values.email,
         password: values.password,
-        rol: values.rol,
       });
 
       const data = response.data;
-      localStorage.setItem(AUTH_KEY, data.accessToken);
+      localStorage.setItem(AUTH_KEY, data);
       window.dispatchEvent(new Event("sessionUpdated"));
       navigate("/");
     } catch (error) {
       setAlertMessage(t("error.conection"));
     }
   };
-
-  function handleClick() {
-    navigate("/login");
-  }
 
   return (
     <section className={sectionClass}>
@@ -90,15 +71,8 @@ export default function Register() {
           <div className={div3Class}>
             <h1 className={headerClass}>{t("header")}</h1>
             <Formik
-              initialValues={{
-                email: "",
-                password: "",
-                confirmPassword: "",
-                firstName: "",
-                lastName: "",
-                rol: localStorage.getItem("rol") || "",
-              }}
-              validationSchema={SignupSchema}
+              initialValues={initialValues}
+              validationSchema={SigninSchema}
               onSubmit={handleSubmit}
             >
               {({ errors, touched }) => (
@@ -109,7 +83,7 @@ export default function Register() {
                       name="email"
                       id="email"
                       className={fieldClass}
-                      placeholder=""
+                      placeholder=" "
                       required
                     />
                     {errors.email && touched.email && (
@@ -120,52 +94,19 @@ export default function Register() {
                     </label>
                   </div>
                   <PasswordInput name="password" label={t("password")} />
-                  <PasswordInput
-                    name="confirmPassword"
-                    label={t("confirmPassword")}
-                  />
-                  <div className={gridClass}>
-                    <div className={containerClass}>
-                      <Field
-                        type="text"
-                        name="firstName"
-                        id="firstName"
-                        className={fieldClass}
-                        placeholder=" "
-                        required
-                      />
-                      {errors.firstName && touched.firstName && (
-                        <div className={errorClass}>{errors.firstName}</div>
-                      )}
-                      <label htmlFor="firstName" className={labelClass}>
-                        {t("firstName")}
-                      </label>
-                    </div>
-                    <div className={containerClass}>
-                      <Field
-                        type="text"
-                        name="lastName"
-                        id="lastName"
-                        className={fieldClass}
-                        placeholder=" "
-                        required
-                      />
-                      {errors.lastName && touched.lastName && (
-                        <div className={errorClass}>{errors.lastName}</div>
-                      )}
-                      <label htmlFor="lastname" className={labelClass}>
-                        {t("lastName")}
-                      </label>
-                    </div>
+                  <div className="flex items-center justify-between">
+                    <Link to="" className={linkClass}>
+                      {t("link1")}
+                    </Link>
                   </div>
                   <button type="submit" className={buttonClass}>
                     {t("submit")}
                   </button>
                   <p className={textClass}>
-                    {t("alreadyRegistered")}
-                    <button onClick={handleClick} className={linkClass}>
-                      {t("link")}
-                    </button>
+                    {t("login")}{" "}
+                    <Link to="/register" className={linkClass}>
+                      {t("link2")}
+                    </Link>
                   </p>
                 </Form>
               )}
