@@ -1,9 +1,5 @@
 import React from "react";
 
-const generateUniqueId = (prefix: string = ""): string => {
-  return `${prefix}${Date.now()}-${Math.floor(Math.random() * 10000)}`;
-};
-
 export default function Home() {
   return (
     <div className="px-10 py-5 flex flex-col divide-gray-900 divide-y">
