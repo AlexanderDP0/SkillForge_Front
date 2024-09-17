@@ -8,6 +8,7 @@ import {
 import React, { useEffect, useState } from "react";
 
 import { AUTH_KEY } from "./utils/constants/Storage.Constants";
+import Footer from "./components/footer/footer";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Navbar from "./components/navbar/navbar";
@@ -49,6 +50,7 @@ const App: React.FC = () => {
     <>
       <Navbar />
       <RouterProvider router={router} />
+      <Footer />
     </>
   );
 };
