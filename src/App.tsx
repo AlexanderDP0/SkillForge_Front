@@ -13,6 +13,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import Navbar from "./components/navbar/navbar";
 import Register from "./pages/register";
+import User from "./pages/user";
 
 const App: React.FC = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -31,7 +32,10 @@ const App: React.FC = () => {
 
   const routes = createRoutesFromElements(
     <>
-      <Route path="/" element={<Home />} />
+      <Route
+        path="/"
+        element={authenticated ? <Navigate to="/user" replace /> : <Home />}
+      />
       <Route
         path="login"
         element={authenticated ? <Navigate to="/" replace /> : <Login />}
@@ -39,6 +43,10 @@ const App: React.FC = () => {
       <Route
         path="register"
         element={authenticated ? <Navigate to="/" replace /> : <Register />}
+      />
+      <Route
+        path="user"
+        element={!authenticated ? <Navigate to="/" replace /> : <User />}
       />
       <Route path="*" element={<h1>404 - Not Found</h1>} />
     </>
