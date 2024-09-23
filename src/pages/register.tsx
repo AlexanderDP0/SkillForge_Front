@@ -68,7 +68,7 @@ export default function Register() {
       <div className={div1Class}>
         <div className={div2Class}>
           <div className={div3Class}>
-            <h1 className={headerClass}>{t("header")}</h1>
+            <h1 className={headerClass}>Registrate</h1>
             <Formik
               initialValues={initialValues}
               validationSchema={SigninSchema}
@@ -89,22 +89,17 @@ export default function Register() {
                       <div className={errorClass}>{errors.email}</div>
                     )}
                     <label htmlFor="email" className={labelClass}>
-                      {t("email")}
+                      Correo
                     </label>
                   </div>
-                  <PasswordInput name="password" label={t("password")} />
-                  <div className="flex items-center justify-between">
-                    <Link to="" className={linkClass}>
-                      {t("link1")}
-                    </Link>
-                  </div>
+                  <PasswordInput name="password" label="Contraseña" />
                   <button type="submit" className={buttonClass}>
-                    {t("submit")}
+                    Confirmar
                   </button>
                   <p className={textClass}>
-                    {t("login")}{" "}
-                    <Link to="/register" className={linkClass}>
-                      {t("link2")}
+                    Ya tienes una cuenta?
+                    <Link to="/login" className={linkClass}>
+                      Inicia sesión
                     </Link>
                   </p>
                 </Form>

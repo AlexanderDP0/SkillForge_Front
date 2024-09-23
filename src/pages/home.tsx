@@ -4,6 +4,7 @@ import einstein from "../assets/einstein.png";
 import huxley from "../assets/huxley.png";
 import js from "../assets/js.png";
 import laptop from "../assets/laptop.png";
+import logo from "../assets/logo.jpg";
 import material from "../assets/material.png";
 import nodejs from "../assets/nodejs.png";
 import react from "../assets/react.png";
@@ -27,7 +28,7 @@ export default function Home() {
             Mas informacion
           </button>
         </div>
-        <img src="" alt="Logo" />
+        <img src={logo} alt="Logo" className="p-10 w-1/2 mx-auto" />
       </div>
       <div>
         <h1 className="text-black font-semibold text-4xl pt-5">
@@ -86,7 +87,7 @@ export default function Home() {
               Lecciones de aprendizaje
             </h1>
             <p className="text-gray-800 text-xl my-auto font-light">
-              Cada herramienta cuenta con llecciones teoricas y practicas para
+              Cada herramienta cuenta con lecciones teoricas y practicas para
               comprender correctamente los temas
             </p>
           </div>
