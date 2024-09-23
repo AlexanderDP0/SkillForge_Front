@@ -87,7 +87,7 @@ export default function Login() {
       <div className={div1Class}>
         <div className={div2Class}>
           <div className={div3Class}>
-            <h1 className={headerClass}>{t("header")}</h1>
+            <h1 className={headerClass}>Inicio de Sesión</h1>
             <Formik
               initialValues={initialValues}
               validationSchema={SigninSchema}
@@ -108,10 +108,10 @@ export default function Login() {
                       <div className={errorClass}>{errors.email}</div>
                     )}
                     <label htmlFor="email" className={labelClass}>
-                      {t("email")}
+                      Correo
                     </label>
                   </div>
-                  <PasswordInput name="password" label={t("password")} />
+                  <PasswordInput name="password" label="contraseña" />
                   <div className="flex items-center justify-between">
                     <div className="flex items-start">
                       <div className="flex items-center h-5">
@@ -124,21 +124,21 @@ export default function Login() {
                       </div>
                       <div className="ml-3 text-sm">
                         <label htmlFor="remember" className={textClass}>
-                          {t("remember")}
+                          Recordar
                         </label>
                       </div>
                     </div>
                     <Link to="" className={linkClass}>
-                      {t("link1")}
+                      Olvidaste tu contraseña?
                     </Link>
                   </div>
                   <button type="submit" className={buttonClass}>
-                    {t("submit")}
+                    Confirmar
                   </button>
                   <p className={textClass}>
-                    {t("notRegistered")}{" "}
+                    Aun no formas parte de SkillForge?
                     <Link to="/register" className={linkClass}>
-                      {t("link2")}
+                      Registrate
                     </Link>
                   </p>
                 </Form>

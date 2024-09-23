@@ -17,7 +17,7 @@ export const textClass = classNames(
 );
 
 export const linkClass = classNames(
-  "font-medium text-yellow-400 hover:underline dark:text-yellow-400 ml-2"
+  "font-medium text-xs text-yellow-400 hover:underline dark:text-yellow-400 ml-2"
 );
 
 export const passwordClass = classNames(

@@ -56,7 +56,10 @@ export default function Navbar() {
               >
                 Home
               </button>
-              <button className="text-black hover:text-gray-200 py-2 text-lg font-semibold">
+              <button
+                onClick={() => handleNavigation("/about")}
+                className="text-black hover:text-gray-200 py-2 text-lg font-semibold"
+              >
                 About
               </button>
               <button
@@ -87,7 +90,7 @@ export default function Navbar() {
                 Biblioteca Virtual
               </button>
               <button
-                onClick={() => handleNavigation("/")}
+                onClick={() => handleNavigation("support")}
                 className="text-black hover:decoration-2 hover:underline-offset-4 hover:underline hover:decoration-solid py-2 text-lg font-semibold"
               >
                 Apoyo

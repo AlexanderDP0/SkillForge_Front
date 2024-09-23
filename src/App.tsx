@@ -8,11 +8,13 @@ import {
 import React, { useEffect, useState } from "react";
 
 import { AUTH_KEY } from "./utils/constants/Storage.Constants";
+import About from "./pages/about";
 import Footer from "./components/footer/footer";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Navbar from "./components/navbar/navbar";
 import Register from "./pages/register";
+import Support from "./pages/support";
 import User from "./pages/user";
 
 const App: React.FC = () => {
@@ -38,16 +40,21 @@ const App: React.FC = () => {
       />
       <Route
         path="login"
-        element={authenticated ? <Navigate to="/" replace /> : <Login />}
+        element={authenticated ? <Navigate to="/user" replace /> : <Login />}
       />
       <Route
         path="register"
-        element={authenticated ? <Navigate to="/" replace /> : <Register />}
+        element={authenticated ? <Navigate to="/user" replace /> : <Register />}
+      />
+      <Route
+        path="about"
+        element={authenticated ? <Navigate to="/user" replace /> : <About />}
       />
       <Route
         path="user"
         element={!authenticated ? <Navigate to="/" replace /> : <User />}
       />
+      <Route path="support" element={<Support />} />
       <Route path="*" element={<h1>404 - Not Found</h1>} />
     </>
   );
