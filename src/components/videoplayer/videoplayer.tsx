@@ -3,7 +3,7 @@ import React from "react";
 export default function VideoPlayer() {
   return (
     <div className="flex justify-center items-center w-full">
-      <div className="bg-white p-4 rounded-lg shadow-lg w-full">
+      <div className="bg-gray-800 p-4 rounded-lg shadow-lg w-full">
         <div className="aspect-video w-full">
           <iframe
             className="w-full h-full rounded-lg"
