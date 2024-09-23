@@ -9,6 +9,7 @@ import React, { useEffect, useState } from "react";
 
 import { AUTH_KEY } from "./utils/constants/Storage.Constants";
 import About from "./pages/about";
+import Course from "./pages/courses";
 import Footer from "./components/footer/footer";
 import Home from "./pages/home";
 import Login from "./pages/login";
@@ -16,6 +17,7 @@ import Navbar from "./components/navbar/navbar";
 import Register from "./pages/register";
 import Support from "./pages/support";
 import User from "./pages/user";
+import VirtualLibrary from "./pages/virtuallibrary";
 
 const App: React.FC = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -54,7 +56,9 @@ const App: React.FC = () => {
         path="user"
         element={!authenticated ? <Navigate to="/" replace /> : <User />}
       />
+      <Route path="course" element={<Course />} />
       <Route path="support" element={<Support />} />
+      <Route path="virtuallibrary" element={<VirtualLibrary />} />
       <Route path="*" element={<h1>404 - Not Found</h1>} />
     </>
   );

@@ -53,7 +53,7 @@ export default function Register() {
         email: values.email,
         password: values.password,
       });
-
+      localStorage.setItem(EMAIL_KEY, values.email);
       const data = response.data;
       localStorage.setItem(AUTH_KEY, data);
       window.dispatchEvent(new Event("sessionUpdated"));

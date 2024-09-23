@@ -39,6 +39,36 @@ export default function Support() {
       title: "Back & Front",
       description: "Description of the Back & Front course",
     },
+    {
+      imgSrc: react,
+      title: "React",
+      description: "Description of the React course",
+    },
+    {
+      imgSrc: nodejs,
+      title: "Node Js",
+      description: "Description of the Nodejs course",
+    },
+    {
+      imgSrc: reactnode,
+      title: "React & Node",
+      description: "Description of the React & Node course",
+    },
+    {
+      imgSrc: html,
+      title: "HTML & CSS",
+      description: "Description of the HTML & CSS course",
+    },
+    {
+      imgSrc: js,
+      title: "JavaScript",
+      description: "Description of the JavaScript course",
+    },
+    {
+      imgSrc: backfront,
+      title: "Back & Front",
+      description: "Description of the Back & Front course",
+    },
   ];
 
   return (
@@ -46,22 +76,25 @@ export default function Support() {
       <h1 className="text-black font-semibold text-4xl pt-5">
         MATERIAL DE APOYO
       </h1>
-      <div className="w-full pt-5">
+      <div className="w-1/2 pt-5 px-5 mt-10">
         <VideoPlayer />
       </div>
-      <div className="flex justify-center flex-wrap pt-5">
+      <div className="flex justify-center flex-wrap p-5">
         {materials.map((material, index) => (
-          <div key={index} className="w-1/3 px-2 pb-8">
+          <div
+            key={index}
+            className="w-1/4 px-2 pb-8 hover:bg-yellow-100 rounded"
+          >
             <a href="">
               <img
                 src={material.imgSrc}
                 alt={material.title}
-                className="w-full rounded"
+                className="w-full rounded p-1"
               />
-              <h1 className="text-black font-bold text-xl font-semibold pt-1">
+              <h1 className="text-black font-bold text-xl font-semibold px-1">
                 {material.title}
               </h1>
-              <p className="text-gray-800 text-xl font-light">
+              <p className="text-gray-800 text-xl font-light px-1">
                 {material.description}
               </p>
             </a>

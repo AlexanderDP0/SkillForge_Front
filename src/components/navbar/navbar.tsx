@@ -84,7 +84,7 @@ export default function Navbar() {
                 Cursos
               </button>
               <button
-                onClick={() => handleNavigation("/")}
+                onClick={() => handleNavigation("virtuallibrary")}
                 className="text-black hover:decoration-2 hover:underline-offset-4 hover:underline hover:decoration-solid py-2 text-lg font-semibold"
               >
                 Biblioteca Virtual
