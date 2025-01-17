@@ -22,6 +22,7 @@ import {
 
 import PasswordInput from "../components/passwordinput/PasswordInput";
 import api from "../utils/axios/Axios";
+import logo from "../assets/logo.jpg";
 import { useTranslation } from "react-i18next";
 
 const initialValues = {
@@ -35,15 +36,15 @@ export default function Register() {
   const navigate = useNavigate();
 
   const SigninSchema = Yup.object().shape({
-    email: Yup.string().email(t("errors.email")).required(t("errors.required")),
+    email: Yup.string().email(t("Needs a email")).required(t("Is required")),
     password: Yup.string()
-      .min(8, t("errors.short"))
-      .max(50, t("errors.long"))
-      .matches(/[a-z]/, t("errors.lower"))
-      .matches(/[A-Z]/, t("errors.uper"))
-      .matches(/\d/, t("errors.number"))
-      .matches(/[@$!%*?&#]/, t("errors.special"))
-      .required(t("errors.required")),
+      .min(8, t("Too short"))
+      .max(50, t("Too long"))
+      .matches(/[a-z]/, t("Needs a lower character"))
+      .matches(/[A-Z]/, t("Needs a uper character"))
+      .matches(/\d/, t("Needs a number"))
+      .matches(/[@$!%*?&#]/, t("Needs a special character"))
+      .required(t("Is required")),
   });
 
   const handleSubmit = async (values: { email: string; password: string }) => {
@@ -68,7 +69,14 @@ export default function Register() {
       <div className={div1Class}>
         <div className={div2Class}>
           <div className={div3Class}>
-            <h1 className={headerClass}>Registrate</h1>
+            <div className="flex flex-row">
+              <h1 className={headerClass}>Register</h1>
+              <img
+                src={logo}
+                alt="logo"
+                className="w-36 h-36 rounded-lg mx-auto"
+              />
+            </div>
             <Formik
               initialValues={initialValues}
               validationSchema={SigninSchema}

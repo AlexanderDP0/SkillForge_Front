@@ -10,12 +10,12 @@ import {
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa6";
 
-type PasswordInputProps = {
+type PasswordInputprops = {
   label: string;
   name: string;
 };
 
-const PasswordInput = (props: PasswordInputProps) => {
+const PasswordInput = (props: PasswordInputprops) => {
   const { label, name } = props;
   const [showPassword, setShowPassword] = useState(false);
   const [field, meta] = useField(name);

@@ -45,22 +45,22 @@ export default function Navbar() {
     <nav className="dark:bg-yellow-100 p-5">
       <div className="container-screen flex justify-between items-center px-2">
         <div className="text-yellow-300 font-bold text-4xl italic">
-          SkillForge
+          <button onClick={() => handleNavigation("/")}>SkillForge</button>
         </div>
         <div className="hidden md:flex space-x-4">
           {!isLoggedIn ? (
             <>
               <button
                 onClick={() => handleNavigation("/")}
-                className="text-black hover:text-gray-200 py-2 text-lg font-semibold"
+                className="text-black  py-2 text-lg font-semibold hover:underline underline-offset-2"
               >
                 Home
               </button>
               <button
                 onClick={() => handleNavigation("/about")}
-                className="text-black hover:text-gray-200 py-2 text-lg font-semibold"
+                className="text-black  py-2 text-lg font-semibold hover:underline underline-offset-2"
               >
-                About
+                About us
               </button>
               <button
                 onClick={() => handleNavigation("/login")}
@@ -101,16 +101,6 @@ export default function Navbar() {
               {isOpen && (
                 <div className="absolute right-5 w-48 mt-10 y-2 p-1 bg-yellow-200 rounded-lg shadow-lg ">
                   <ul className="space-y-2">
-                    <li>
-                      <button className="text-black w-full p-1 dark:hover:bg-yellow-500 rounded-lg">
-                        Configuracion
-                      </button>
-                    </li>
-                    <li>
-                      <button className="text-black w-full p-1 dark:hover:bg-yellow-500 rounded-lg">
-                        Opcion random
-                      </button>
-                    </li>
                     <li>
                       <button
                         onClick={handleLogout}

@@ -27,17 +27,17 @@ export const passwordClass = classNames(
 export const sectionClass = classNames("bg-gray-50 white:bg-gray-900");
 
 export const div1Class = classNames(
-  "flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
+  "flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 m"
 );
 
 export const div2Class = classNames(
-  "w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
+  "w-screen md:w-screen bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
 );
 
 export const div3Class = classNames("p-6 space-y-4 md:space-y-6 sm:p-8");
 
 export const headerClass = classNames(
-  "text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"
+  "text-5xl my-auto font-bold leading-tight tracking-tight text-gray-900 md:text-5xl dark:text-white"
 );
 
 export const formClass = classNames("space-y-4 md:space-y-6");
