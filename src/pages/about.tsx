@@ -12,11 +12,11 @@ export default function About() {
         Acerca de nosotros
       </h1>
       <div>
-        <p className="pt-10 w-2/3 text-2xl font-light">
+        <p className="pt-10 w-2/3 text-2xl font-light ">
           <b className="font-bold text-yellow-400">SkillForge</b> - Forjando
           habilidades tecnologicas para un mercado competitivo
         </p>
-        <img src={logo} alt="Logo" className="p-10 w-1/2 mx-auto" />
+        <img src={logo} alt="Logo" className="m-10 w-1/2 mx-auto rounded-lg" />
       </div>
       <div className="flex justify-center flex-wrap gap-4 py-10">
         <p className="text-justify pt-10 w-2/3 text-2xl font-light mx-auto m-10">
@@ -76,7 +76,7 @@ export default function About() {
           </h1>
           <div className="flex justify-center flex-wrap pt-4">
             <div className="w-1/3 p-5">
-              <a href="">
+              <a href="login">
                 <img src={react} alt="React Logo" />
                 <h1 className="text-black font-bold text-xl font-semibold">
                   React
@@ -89,7 +89,7 @@ export default function About() {
               </a>
             </div>
             <div className="w-1/3 p-5">
-              <a href="">
+              <a href="login">
                 <img src={js} alt="img JavaScript" />
                 <h1 className="text-black font-bold text-xl font-semibold">
                   JavaScript
@@ -102,7 +102,7 @@ export default function About() {
               </a>
             </div>
             <div className="w-1/3 p-5">
-              <a href="">
+              <a href="login">
                 <img src={nodejs} alt="img Node Js" />
                 <h1 className="text-black font-bold text-xl font-semibold">
                   Node Js

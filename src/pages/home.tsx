@@ -11,6 +11,9 @@ import react from "../assets/react.png";
 import seneca from "../assets/seneca.png";
 
 export default function Home() {
+  const handleNavigation = (path: string) => {
+    window.location.pathname = path;
+  };
   return (
     <div className="px-10 py-5 flex flex-col divide-gray-900 divide-y">
       <div>
@@ -24,11 +27,14 @@ export default function Home() {
           tengan lo necesario para la industria laboral
         </p>
         <div className="py-5">
-          <button className="text-black font-semibold py-2 px-4 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg text-lg text-center bg-yellow-300 dark:hover:bg-yellow-500 dark:focus:ring-primary-800">
+          <button
+            className="text-black font-semibold py-2 px-4 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg text-lg text-center bg-yellow-300 dark:hover:bg-yellow-500 dark:focus:ring-primary-800"
+            onClick={() => handleNavigation("/about")}
+          >
             Mas informacion
           </button>
         </div>
-        <img src={logo} alt="Logo" className="p-10 w-1/2 mx-auto" />
+        <img src={logo} alt="Logo" className="m-10 w-1/2 mx-auto rounded-lg" />
       </div>
       <div>
         <h1 className="text-black font-semibold text-4xl pt-5">
@@ -36,7 +42,7 @@ export default function Home() {
         </h1>
         <div className="flex justify-center flex-wrap pt-4">
           <div className="w-1/3 p-5">
-            <a href="">
+            <a href="login">
               <img src={react} alt="React Logo" />
               <h1 className="text-black font-bold text-xl font-semibold">
                 React
@@ -49,7 +55,7 @@ export default function Home() {
             </a>
           </div>
           <div className="w-1/3 p-5">
-            <a href="">
+            <a href="login">
               <img src={js} alt="img JavaScript" />
               <h1 className="text-black font-bold text-xl font-semibold">
                 JavaScript
@@ -62,7 +68,7 @@ export default function Home() {
             </a>
           </div>
           <div className="w-1/3 p-5">
-            <a href="">
+            <a href="login">
               <img src={nodejs} alt="img Node Js" />
               <h1 className="text-black font-bold text-xl font-semibold">
                 Node Js

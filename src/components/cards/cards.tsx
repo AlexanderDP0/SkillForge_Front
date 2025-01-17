@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-interface CardProps {
+interface Cardprops {
   imageSrc: string;
   title: string;
   description: string;
@@ -10,7 +10,7 @@ interface CardProps {
   courseLink: string;
 }
 
-const Cards: React.FC<CardProps> = ({
+const Cards: React.FC<Cardprops> = ({
   imageSrc,
   title,
   description,
@@ -42,7 +42,7 @@ const Cards: React.FC<CardProps> = ({
           <b className="font-semibold">Puntaje:</b> {score}
         </p>
         <p className="mb-2 font-normal text-black-100 dark:text-black-500">
-          <b className="font-semibold">Estado:</b> {status}{" "}
+          <b className="font-semibold">estado:</b> {status}{" "}
         </p>
         <button
           onClick={() => handleNavigation(courseLink)}
